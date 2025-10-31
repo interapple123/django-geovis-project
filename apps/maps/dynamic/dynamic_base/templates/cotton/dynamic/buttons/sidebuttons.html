@@ -1,0 +1,202 @@
+<div id="zoom-in-button-container" x-data="{true : true}">
+	<c-dynamic.buttons.sidebutton idButton="zoom-in-button-container" clickRes="mapZoomIn" whenShow="true" whenShowTooltip="true" tooltipMessage="Zoom in" addClass="">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+    </svg>
+	</c-dynamic.buttons.sidebutton>
+</div>
+
+<div id="zoom-out-button-container" x-data="{true : true}">
+	<c-dynamic.buttons.sidebutton idButton="zoom-out-button-container" clickRes="mapZoomOut" whenShow="true" whenShowTooltip="true" tooltipMessage="Zoom out" addClass="mt-2">
+		<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<line x1="5" y1="12" x2="19" y2="12"></line>
+		</svg>
+	</c-dynamic.buttons.sidebutton>
+</div>
+
+<div id="option-container" x-data="{ isExpanded : false,  isGantiLayerExpanded : false, isCatalogExpanded : false, true : true }" class="
+  flex flex-col
+  mt-2
+">
+  <div id="option-button-container" class="flex">
+    <c-dynamic.buttons.sidebutton idButton="option-button" clickRes="isExpanded = ! isExpanded" whenShow="! isExpanded" whenShowTooltip="! isExpanded" tooltipMessage="Open options" addClass="">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+    </c-dynamic.buttons.sidebutton>
+    <c-dynamic.buttons.sidebutton idButton="close-button" clickRes="isGantiLayerExpanded ? isGantiLayerExpanded = ! isGantiLayerExpanded : ''; isCatalogExpanded ? isCatalogExpanded = ! isCatalogExpanded : ''; isExpanded = ! isExpanded" whenShow="isExpanded" whenShowTooltip="isExpanded" tooltipMessage="Close options" addClass="">
+      <svg xmlns="http://www.w3.org/2000/svg" class="
+        h-5 w-5
+        text-red-800
+      " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </c-dynamic.buttons.sidebutton>
+  </div>
+
+  <div id="option-container-expand" x-collapse.duration.300ms x-cloak x-show="isExpanded" class="
+    flex flex-col
+    gap-2
+  ">
+    <div id="ganti-layer-container" x-data="{ openTooltip : true }" class="
+      flex flex-row
+      gap-2
+    ">
+      <c-dynamic.buttons.sidebutton idButton="ganti-layer-button" clickRes="isGantiLayerExpanded = ! isGantiLayerExpanded; openTooltip = ! openTooltip" whenShow="true" whenShowTooltip="openTooltip" tooltipMessage="Change basemap Layer" addClass="mt-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+      </c-dynamic.buttons.sidebutton>
+
+      <div id="ganti-layer-option-container"  class="relative flex items-center justify-center">
+        <div id="ganti-layer-option-popup" x-transition.duration.300ms x-cloak x-show="isGantiLayerExpanded" x-data="" class="
+          absolute left-0 top-0 z-400 flex flex-col justify-center pointer-events-auto
+          w-fit
+          mt-2 gap-2 p-[10px]
+          rounded-xl border border-white/30 bg-white/15 backdrop-blur-lg
+          transition hover:bg-white/20
+        ">
+          <span class="
+            inline-block align-top
+            whitespace-nowrap text-lg
+          ">Layer Option</span>
+          <div id="world-radio-container">
+            <input id="world" x-on:click="$store.mapState.activeLayer == 'World' ? '' : changeLayerHandler('World')" type="radio" name="radio-1" class="radio radio-neutral" checked="checked" />
+            <label for="world">World</label>
+          </div>
+          <div id="osm-radio-container" class="whitespace-nowrap">
+            <input id="openstreetmap" x-on:click="$store.mapState.activeLayer == 'OSM' ? '' : changeLayerHandler('OSM')" type="radio" name="radio-1" class="radio radio-neutral" />
+            <label for="openstreetmap" class="">Open Street Map</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <form hx-post="{% url 'upload_file' %}" hx-on::after-request="updateUploadedShpLayer();" hx-encoding="multipart/form-data" class="flex m-0 p-0 pointer-events-auto">
+      {% csrf_token %}
+      <c-dynamic.buttons.sidebutton_input idButton="upload-button" formName="zipfile" formType="file" onChange="htmx.trigger(this.form, 'submit');" clickRes="" whenShow="true" whenShowTooltip="true" tooltipMessage="Upload a zip file containing shp" addClass="block">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="17 8 12 3 7 8"></polyline>
+          <line x1="12" y1="3" x2="12" y2="15"></line>
+        </svg>
+      </c-dynamic.buttons.sidebutton_input>
+    </form> -->
+
+    <div id="catalog-container" x-data="{ openTooltip : true }" class="
+      flex flex-row
+      gap-2
+    ">
+      <c-dynamic.buttons.sidebutton idButton="catalog-button" clickRes="isCatalogExpanded = ! isCatalogExpanded; openTooltip = ! openTooltip" whenShow="true" whenShowTooltip="openTooltip" tooltipMessage="Open data catalog" addClass="">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 1L2 6l10 5 10-5-10-5z"></path>
+          <path d="M2 12l10 5 10-5"></path>
+          <path d="M2 18l10 5 10-5"></path>
+        </svg>
+      </c-dynamic.buttons.sidebutton>
+
+      <div id="catalog-option-container" x-bind:class="isGantiLayerExpanded ? 'translate-y-7' : 'delay-500'" class="relative flex items-center justify-center">
+        <div id="catalog-option-popup" x-transition.duration.300ms x-cloak x-show="isCatalogExpanded" x-data="" class="
+          absolute left-0 top-0 z-400 flex flex-col justify-center pointer-events-auto
+          w-fit
+          gap-2 p-[10px]
+          rounded-xl border border-white/30 bg-white/15 backdrop-blur-lg
+          transition hover:bg-white/20
+          ">
+          <span class="
+            inline-block align-top
+            whitespace-nowrap text-lg
+          ">Data Catalog</span>
+          <div id="alur-pelayaran-checkbox-container" class="whitespace-nowrap">
+            <input name="alur-pelayaran" type="checkbox" x-on:click="shpLayerHandler('Alur Pelayaran')" class="checkbox"/>
+            <label for="alur-pelayaran">Alur Pelayaran</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="command-container" x-data="{ isExpanded : false, isCommandExpanded : false, true : true }" class="
+  flex flex-col
+  mt-2
+">
+  <div id="command-button-container">
+    <c-dynamic.buttons.sidebutton idButton="command-button" clickRes="isExpanded = ! isExpanded" whenShow="! isExpanded" whenShowTooltip="! isExpanded" tooltipMessage="Open commands" addClass="">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
+      </svg>
+    </c-dynamic.buttons.sidebutton>
+    <c-dynamic.buttons.sidebutton idButton="close-button" clickRes="isCommandExpanded ? isCommandExpanded = ! isCommandExpanded : ''; isExpanded = ! isExpanded" whenShow="isExpanded" whenShowTooltip="isExpanded" tooltipMessage="Close commands" addClass="">
+      <svg xmlns="http://www.w3.org/2000/svg" class="
+        h-5 w-5
+        text-red-800
+      " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </c-dynamic.buttons.sidebutton>
+  </div>
+
+  <div id="command-container-expand" x-collapse.duration.300ms x-data="" x-cloak x-show="isExpanded" class="
+    flex flex-col
+    gap-2
+  ">
+    <div id="nearest-polygon-container" x-data="{ isNearestUsed : false }" class="flex flex-row gap-2">
+      <div id="nearest-polygon-button-container">
+        <c-dynamic.buttons.sidebutton idButton="nearest-polygon-button" clickRes="isNearestUsed = ! isNearestUsed; markerToggle()" whenShow="! isNearestUsed" whenShowTooltip="! isNearestUsed" tooltipMessage="Activate nearest polygon markers" addClass="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+        </c-dynamic.buttons.sidebutton>
+        <c-dynamic.buttons.sidebutton idButton="nearest-polygon-button-active" clickRes="isNearestUsed = ! isNearestUsed; markerToggle()" whenShow="isNearestUsed" whenShowTooltip="isNearestUsed" tooltipMessage="Deactivate nearest polygon markers. Click to place a marker" addClass="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+        </c-dynamic.buttons.sidebutton>
+      </div>
+
+      <div id="nearest-polygon-input-container" class="relative flex items-center justify-center">
+        <div id="nearest-polygon-container-popup" x-transition.duration.300ms x-cloak x-show="isNearestUsed" x-data="" class="
+          absolute left-0 top-0 z-400 flex flex-col justify-center pointer-events-auto
+          w-fit
+          mt-2 gap-2 p-[10px]
+          rounded-xl border border-white/30 bg-white/15 backdrop-blur-lg
+          transition hover:bg-white/20
+        ">
+          <span class="inline-block align-top whitespace-nowrap text-lg">
+            Place a marker for
+            nearest polygon
+          </span>
+          <div id="input-coords-form-container">
+            {% include "static/input_coords_form.html" %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="side-by-side-container" x-data="{ isSideBySideUsed : false }" class="">
+      <div id="side-by-side-button-container">
+        <c-dynamic.buttons.sidebutton idButton="side-by-side-button" clickRes="isSideBySideUsed = ! isSideBySideUsed; sideBySideToggle()" whenShow="! isSideBySideUsed" whenShowTooltip="! isSideBySideUsed" tooltipMessage="Activate side by side" addClass="">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="12" y1="3" x2="12" y2="21" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </c-dynamic.buttons.sidebutton>
+        <c-dynamic.buttons.sidebutton idButton="side-by-side-button-active" clickRes="isSideBySideUsed = ! isSideBySideUsed; sideBySideToggle()" whenShow="isSideBySideUsed" whenShowTooltip="isSideBySideUsed" tooltipMessage="Deactivate side by side" addClass="">
+          <svg class="w-5 h-5 text-red-800" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="12" y1="3" x2="12" y2="21" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </c-dynamic.buttons.sidebutton>
+      </div>
+    </div>
+  </div>
+</div>

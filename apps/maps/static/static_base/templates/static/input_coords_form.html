@@ -1,0 +1,6 @@
+<form id="input_form" hx-swap="none" hx-post="{% url 'input_marker_coords' %}" hx-on::after-request="placeMarker();" class="m-0 p-0 pointer-events-auto flex flex-col gap-2">
+    {% csrf_token %}
+    <input type="text" name="latitude" placeholder="Enter Latitude" />
+    <input type="text" name="longitude" placeholder="Enter Longitude" />
+    <button type="submit" class="transition pointer-events-auto">Submit</button>
+</form>

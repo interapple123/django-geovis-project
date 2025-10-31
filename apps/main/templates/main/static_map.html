@@ -1,0 +1,23 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block content %}
+<div id="staticmap-container" class="absolute top-0 z-0 w-screen h-screen">
+    <div id="leaflet-map" style="height: 100vh; width: 100vw;" class=""></div>
+</div>
+<!-- button components -->
+<div id="interface-container" class="relative flex-[1] mb-[16px] mr-[20px] mt-[16px] ml-[20px] z-1 pointer-events-none">
+    <div id="side-buttons-container" class="flex-[1] flex flex-col w-fit">
+        <c-static.buttons.sidebuttons></c-static.buttons.sidebuttons> 
+    </div>
+    <div id="bottom-information-container" class="flex-[1] flex flex-row gap-2 justify-center w-fit bottom-0 absolute" >
+        <c-static.info.bottominfo></c-static.info.bottominfo>
+    </div>
+</div>
+<script type="text/javascript" src="{% static 'static/js/utils.js' %}"></script>
+<script type="text/javascript" src="{% static 'static/js/buttons.js' %}"></script>
+<script type="text/javascript"  src="{% static 'static/js/main.js' %}"></script>
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}

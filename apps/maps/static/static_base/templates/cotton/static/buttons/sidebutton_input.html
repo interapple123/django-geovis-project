@@ -1,0 +1,22 @@
+<div class="relative group flex flex-row items-center">
+    <input id="{{ idButton }}" name="{{ formName }}" type="{{ formType }}" class="
+        hidden
+    " onchange="{{ onChange }}"/>
+    <label for="{{ idButton }}" x-cloak x-show="{{ whenShow }}" @click="{{ clickRes }}" class="
+        pointer-events-auto z-400
+        w-fit
+        p-[10px]
+        rounded-xl border border-white/30 bg-white/15 backdrop-blur-lg
+        transition hover:cursor-pointer hover:bg-white/20
+        {{ addClass }}
+    ">{{ slot }}</label>
+    <div x-cloak x-show="{{ whenShowTooltip }}" class="
+        absolute left-13 z-1000 pointer-events-none
+        p-[10px]
+        rounded-lg border border-white/30 bg-black/70 text-white text-sm
+        transition duration-400 opacity-0 group-hover:opacity-100 whitespace-nowrap
+        {{ addClass }}
+    ">
+        {{ tooltipMessage }}
+    </div>
+</div>
