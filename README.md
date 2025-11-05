@@ -64,5 +64,6 @@ CREATE EXTENSION postgis;
 ```
 source insert_shp_to_database.sh "AlurPelayaran" "Alur Pelayaran" "/home/fhs/datashp/01_ALUR_PELAYARAN.shp"
 ```
-9. Jika sudah selesai menyetor data shp, silakan lakukan migrate. Kemudian runserver.
-10. Jangan lupa juga untuk membuat superuser untuk melihat data apakah sudah masuk page admin atau belum.
+9. Uncomment url alurpelayaran di urls.py (di directory static_base)
+10. Jika sudah selesai menyetor data shp, silakan lakukan migrate. Kemudian runserver.
+11. Jangan lupa juga untuk membuat superuser untuk melihat data apakah sudah masuk page admin atau belum.
