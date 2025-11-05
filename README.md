@@ -17,7 +17,7 @@ pip install -r requirements.txt
 ```python
 SECRET_KEY = "YOUR-SECRET-KEY"
 DEBUG=True
-DATABASE_URL="postgres://user_postgis:pass_postgis@localhost:5432/main_postgis"
+DATABASE_URL="postgis://user_postgis:pass_postgis@localhost:5432/main_postgis"
 ```
 
 ## Setup database postgresql (postgis)
