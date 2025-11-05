@@ -56,9 +56,13 @@ CREATE EXTENSION postgis;
 1. Kosongkan models/gis_models.py
 2. Hapus append list dari model-model di models/__init__py
 3. Hapus register model-model yang sudah dihapus pada models/gis_models.py dan models/__init__.py di admin.py
-4. Sesuaikan nama env python di insert_shp_to_database.sh (dan mungkin step lainnya)
-5. Silakan gunakan insert_shp_to_database.sh untuk menulis, register dan upload data shp
-6. Contoh penggunaan insert_shp_to_database.sh -> source insert_shp_to_database.sh "[nama model di python]" "[nama_model_di_admin]" "[path_beserta_nama_ke_file_shp]"
+4. Comment sementara url alurpelayaran di urls.py
+5. Lakukan migrate
+6. Ke directory project (yang ada manage.py) , sesuaikan nama venv python di insert_shp_to_database.sh (dan mungkin step lainnya)
+7. Silakan gunakan insert_shp_to_database.sh untuk menulis, register dan upload data shp
+8. Contoh penggunaan insert_shp_to_database.sh -> source insert_shp_to_database.sh "[nama model di python]" "[nama_model_di_admin]" "[path_beserta_nama_ke_file_shp]"
 ```
 source insert_shp_to_database.sh "AlurPelayaran" "Alur Pelayaran" "/home/fhs/datashp/01_ALUR_PELAYARAN.shp"
 ```
+9. Jika sudah selesai menyetor data shp, silakan lakukan migrate. Kemudian runserver.
+10. Jangan lupa juga untuk membuat superuser untuk melihat data apakah sudah masuk page admin atau belum.
