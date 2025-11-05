@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, FileResponse
 from django.core.serializers import serialize
 from django.conf import settings
-from .models import AlurPelayaran, ZipFile, ZipFileForm, Coords, CoordsForm
+from .models import *
 from .utils import move_files_from_base_to_app, process_shp_zip_file
 import os
 import json
